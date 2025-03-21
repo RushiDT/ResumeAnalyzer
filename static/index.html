@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+</head>
+<body>
+    <h2>Upload Your Resume</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+        <label for="resume">Select Resume (PDF/DOCX):</label>
+        <input type="file" id="resume" name="file" required>
+        <br><br>
+        <label for="job_description">Job Description:</label>
+        <textarea id="job_description" name="job_description" rows="4" required></textarea>
+        <br><br>
+        <button type="submit">Analyze</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("upload-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let formData = new FormData();
+            formData.append("file", document.getElementById("resume").files[0]);
+            formData.append("job_description", document.getElementById("job_description").value);
+
+            fetch("http://127.0.0.1:5000/upload", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
