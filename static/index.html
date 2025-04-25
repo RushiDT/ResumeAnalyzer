@@ -3,39 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Analyzer</title>
+    <title>CareerMatch Pro - Advanced Resume Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Upload Your Resume</h2>
-    <form id="upload-form" enctype="multipart/form-data">
-        <label for="resume">Select Resume (PDF/DOCX):</label>
-        <input type="file" id="resume" name="file" required>
-        <br><br>
-        <label for="job_description">Job Description:</label>
-        <textarea id="job_description" name="job_description" rows="4" required></textarea>
-        <br><br>
-        <button type="submit">Analyze</button>
-    </form>
-    <div id="output"></div>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
 
-    <script>
-        document.getElementById("upload-form").addEventListener("submit", function(event) {
-            event.preventDefault();
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="logo-circle"></div>
+                    <div class="logo-bar"></div>
+                </div>
+                <h1>CareerMatch<span>Pro</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#analyzer">Analyzer</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            let formData = new FormData();
-            formData.append("file", document.getElementById("resume").files[0]);
-            formData.append("job_description", document.getElementById("job_description").value);
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="main-heading">AI-Powered <span class="gradient-text">Resume Analysis</span></h1>
+                <p class="subtitle">Maximize your job opportunities with our advanced resume matching technology</p>
+                <div class="cta-buttons">
+                    <a href="#analyzer" class="primary-btn">Start Analyzing</a>
+                    <a href="#how-it-works" class="secondary-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="floating-element elem-4">
+                        <div class="percentage">92%</div>
+                        <div class="label">Match</div>
+                    </div> 
+                    <div class="floating-element elem-1">
+                        <div class="percentage">92%</div>
+                        <div class="label">Match</div>
+                    </div>
+                    <div class="floating-element elem-2">
+                        <div class="icon-circle"></div>
+                        <div class="label">AI Analysis</div>
+                    </div>
+                    <div class="floating-element elem-3">
+                        <div class="bar-graph">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            fetch("http://127.0.0.1:5000/upload", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("output").innerText = JSON.stringify(data, null, 2);
-            })
-            .catch(error => console.error("Error:", error));
-        });
-    </script>
+        <section id="features" class="features">
+            <h2 class="section-heading">Powerful <span class="gradient-text">Features</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-1"></div>
+                    <h3>Match Scoring</h3>
+                    <p>Get precise compatibility scores between your resume and job descriptions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-2"></div>
+                    <h3>AI Analysis</h3>
+                    <p>Receive intelligent insights about your resume's strengths and weaknesses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-3"></div>
+                    <h3>Skill Extraction</h3>
+                    <p>Automatically identify key skills from your resume</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-4"></div>
+                    <h3>Improvement Tips</h3>
+                    <p>Get actionable suggestions to improve your job application</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <h2 class="section-heading">How It <span class="gradient-text">Works</span></h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload Your Resume</h3>
+                        <p>Upload your resume in PDF or DOCX format to our secure platform</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Add Job Description</h3>
+                        <p>Paste the job description you're applying for</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Instant Analysis</h3>
+                        <p>Receive detailed feedback and match scoring in seconds</p>
+                    </div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Optimize Your Application</h3>
+                        <p>Use our insights to improve your resume for better results</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analyzer" class="analyzer">
+            <div class="analyzer-container">
+                <h2 class="section-heading">Resume <span class="gradient-text">Analyzer</span></h2>
+                <p class="analyzer-description">Upload your resume and paste a job description to get an instant analysis of how well your qualifications match the position requirements.</p>
+                
+                <div class="analysis-form">
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="resume">
+                                <div class="label-icon document-icon"></div>
+                                Upload Resume (PDF/DOCX)
+                            </label>
+                            <div class="file-input-container">
+                                <input type="file" id="resume" name="file" required accept=".pdf,.docx">
+                                <div class="file-input-button">Choose File</div>
+                                <div class="file-input-name">No file chosen</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="job_description">
+                                <div class="label-icon job-icon"></div>
+                                Job Description
+                            </label>
+                            <textarea id="job_description" name="job_description" rows="6" required placeholder="Paste the job description here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">
+                            <span class="btn-icon"></span>
+                            Analyze My Resume
+                        </button>
+                    </form>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="loading-animation">
+                        <div class="loading-circle"></div>
+                        <div class="loading-circle"></div>
+                        <div class="loading-circle"></div>
+                    </div>
+                    <p>Analyzing your resume with AI...</p>
+                </div>
+
+                <div id="output" class="results hidden">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-heading">What Our <span class="gradient-text">Users Say</span></h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="quote">"Using CareerMatchPro helped me land interviews at 3 tech companies. The match scoring was incredibly accurate!"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Alex Johnson</div>
+                            <div class="author-title">Software Developer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">"The AI analysis pointed out weaknesses in my resume I never would have noticed. Game changer!"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Williams</div>
+                            <div class="author-title">Marketing Specialist</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">"After optimizing my resume with CareerMatchPro, my response rate increased by over 40%. Worth every penny!"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Rodriguez</div>
+                            <div class="author-title">Project Manager</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <div class="logo-circle"></div>
+                        <div class="logo-bar"></div>
+                    </div>
+                    <h2>CareerMatch<span>Pro</span></h2>
+                </div>
+                
+            </div>
+            <div class="copyright">
+                <p>© 2025 CareerMatchPro. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
